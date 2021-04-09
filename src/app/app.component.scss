@@ -1,0 +1,88 @@
+.container {
+  transform: translate(-50%, -50%);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: flex;
+
+  border-radius: 25px;
+
+  width: 1100px;
+  height: 600px;
+  background-color: white;
+
+  &__sub {
+    width: 300px;
+    height: 550px;
+    padding: 25px;
+    border-radius: 25px 0 0 25px;
+    background-color: grey;
+  }
+
+  &__main {
+    padding: 25px;
+    width: 800px;
+    height: 550px;
+  }
+}
+
+.sub-container {
+  width: 300px;
+  height: 550px;
+  border-radius: 25px;
+
+}
+
+.calendar {
+  &__header {
+    display: flex;
+    flex-direction: row;
+  }
+
+  &__title {
+    font-size: 2em;
+    display: flex;
+  }
+
+  &__switch {
+    margin-left: auto;
+  }
+}
+
+table {
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+}
+
+th {
+  position: relative;
+  width: 80px;
+  height: 32px;
+  padding: 0 10px 5px;
+  text-align: right;
+  text-indent: 0;
+}
+
+td {
+  position: relative;
+  width: 80px;
+  height: 64px;
+  padding: 4px;
+  vertical-align: top;
+  border: 1px solid grey;
+}
+
+td:empty {
+  background-color: transparent;
+}
+
+.day {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.not-day {
+  font-size: 1.5em;
+  color: grey;
+}
