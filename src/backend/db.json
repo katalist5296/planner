@@ -1,0 +1,40 @@
+{
+  "accounts": [
+    {
+      "id": 1,
+      "username": "test",
+      "password": "12345",
+      "email": "test@gmail.com"
+    },
+    {
+      "username": "qwerty",
+      "email": "123@123.ru",
+      "password": "123",
+      "id": 2
+    },
+    {
+      "username": "12312",
+      "email": "12321",
+      "password": "123213",
+      "id": 3
+    },
+    {
+      "username": "45645",
+      "email": "456546",
+      "password": "45654",
+      "id": 4
+    },
+    {
+      "username": "9999",
+      "email": "9999",
+      "password": "9999",
+      "id": 5
+    },
+    {
+      "username": "8888",
+      "email": "8888",
+      "password": "8888",
+      "id": 6
+    }
+  ]
+}

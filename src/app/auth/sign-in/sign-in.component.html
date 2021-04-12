@@ -1,1 +1,8 @@
-<p>sign-in works!</p>
+<form class="auth-form" [formGroup]="form" (ngSubmit)="onSubmit()">
+  <h2 class='auth-form__title'>Авторизация</h2>
+  <input class="auth-form__element" formControlName="username" type="text" placeholder="Логин" required/>
+  <input class="auth-form__element" formControlName="password" type="password"
+         placeholder="Пароль" required/>
+  <button class="auth-form__element submitBtn" [disabled]="loading" type="submit">Войти</button>
+  <p class="auth-form__link" routerLink="/auth/sign-up">Зарегистрироваться</p>
+</form>
