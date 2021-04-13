@@ -26,7 +26,6 @@ export class AuthService {
   login(username: string, password: string) {
     return this.http.get<User>(`http://localhost:3000/accounts?username=${username}&password=${password}`)
       .pipe(map(user => {
-        console.log(user);
         localStorage.setItem('user', JSON.stringify(user));
         this.userSubject.next(user);
         return user;
