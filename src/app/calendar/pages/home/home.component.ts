@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {finalize} from 'rxjs/operators';
+import {EventsService} from '../../../core/services/events.service';
 
 @Component({
   selector: 'app-home',
@@ -6,10 +8,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
+  events = [];
 
-  constructor() { }
+  constructor(private eventsService: EventsService) { }
 
   ngOnInit(): void {
+    this.loadEvents();
+  }
+
+  loadEvents() {
+    this.eventsService
+      .list(13, 4, 2021)
+      .subscribe((data) => {
+        this.events = data;
+      });
   }
 
 }

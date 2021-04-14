@@ -19,8 +19,8 @@ export class AuthService {
     this.userSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('user')));
     this.user = this.userSubject.asObservable();
 
-    localStorage.removeItem('user');
-    this.userSubject.next(null);
+    /*localStorage.removeItem('user');
+    this.userSubject.next(null);*/
   }
 
   login(username: string, password: string) {

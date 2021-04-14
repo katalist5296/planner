@@ -42,5 +42,17 @@
       "password": "11111",
       "id": 7
     }
+  ],
+  "events": [
+    {
+      "id": 1,
+      "date": "1342021",
+      "text": "Hello"
+    },
+    {
+      "id": 1,
+      "date": "1342021",
+      "text": "Hello 1"
+    }
   ]
 }
