@@ -1,0 +1,9 @@
+<ul class="event-list">
+  <li *ngFor="let event of events;">
+    <p><strong>8:00</strong><br/>
+      {{event.text}}</p>
+  </li>
+  <p *ngIf="!events.length">
+    Событий пока нет
+  </p>
+</ul>

@@ -1,0 +1,21 @@
+<div class="calendar">
+  <section class="calendar-header">
+    <h2><strong>{{calendarService.getMonthName(monthNumber)}}</strong> {{year}}</h2>
+    <div class="calendar-nav">
+      <a (click)="onPreviousMonth()"><i class="fas fa-arrow-left"></i></a>
+      <a (click)="onCurrentMonth()">Сегодня</a>
+      <a (click)="onNextMonth()"><i class="fas fa-arrow-right"></i></a>
+    </div>
+  </section>
+  <section class="calendar-row">
+    <div *ngFor='let weekDay of calendarService.getWeekDaysName()' class="calendar-day day-name">
+      {{ weekDay }}
+    </div>
+  </section>
+
+  <section class="calendar-row" *ngFor="let week of monthWeeks">
+    <div [ngClass]="{ 'calendar-day': true, weekend: day.weekDayNumber === 0 || day.weekDayNumber === 6 }" *ngFor='let day of week'>
+      <span class="calendar-date" (click)="onDayClick(day)">{{ day.number }}</span>
+    </div>
+  </section>
+</div>

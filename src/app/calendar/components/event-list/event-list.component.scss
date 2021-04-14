@@ -1,0 +1,14 @@
+.event-list {
+  list-style: none;
+  padding: 0;
+  height: 340px;
+  overflow-y: scroll;
+
+  li {
+    margin-left: 0;
+  }
+
+  p {
+    font-size: 1em;
+  }
+}

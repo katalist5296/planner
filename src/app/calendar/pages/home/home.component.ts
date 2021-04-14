@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {finalize} from 'rxjs/operators';
 import {EventsService} from '../../../core/services/events.service';
+import {CalendarService} from '../../services/calendar.service';
+import {Day} from '../../domain/day.domain';
 
 @Component({
   selector: 'app-home',
@@ -9,16 +11,30 @@ import {EventsService} from '../../../core/services/events.service';
 })
 export class HomeComponent implements OnInit {
   events = [];
+  tabs = ['Редактировать', 'Очистить'];
+  day: Day;
 
-  constructor(private eventsService: EventsService) { }
+  constructor(
+    private calendarService: CalendarService,
+    private eventsService: EventsService
+  ) { }
 
   ngOnInit(): void {
-    this.loadEvents();
+    this.day = this.calendarService.getCurrentDay();
   }
 
-  loadEvents() {
+  onDayClicked($event): void {
+    this.day = $event;
+    this.loadEvents(this.day.number, this.day.monthIndex + 1, this.day.year);
+  }
+
+  onTabSelect($event): void {
+    console.log($event)
+  }
+
+  loadEvents(day: number, month: number, year: number): void {
     this.eventsService
-      .list(13, 4, 2021)
+      .list(day, month, year)
       .subscribe((data) => {
         this.events = data;
       });
