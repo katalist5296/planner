@@ -1,0 +1,52 @@
+.navigation {
+  position: relative;
+  display: flex;
+  z-index: 1;
+  flex-direction: column;
+  width: 50px;
+  height: 470px;
+  padding: 15px;
+  align-items: center;
+  box-shadow: 1px 0 0 #ececec;
+
+  &__app-name {
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 24px;
+    color: black;
+    margin-bottom: 32px;
+  }
+
+  & ul {
+    margin: 0;
+    padding: 0;
+  }
+
+  &__container-up {
+  }
+
+  &__container-down {
+    position: absolute;
+    bottom: 0;
+  }
+
+
+  &__link {
+    list-style-type: none;
+    padding: 0;
+    margin: 16px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    color: black;
+  }
+
+  & .active {
+    background-color: black;
+    color: white;
+  }
+}

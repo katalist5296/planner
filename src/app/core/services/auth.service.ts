@@ -14,12 +14,11 @@ export class AuthService {
   public user: Observable<User>;
 
   constructor(
+    private router: Router,
     private usersApi: UsersApi
   ) {
     this.userSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('user')));
     this.user = this.userSubject.asObservable();
-
-    this.logout();
   }
 
   login(username: string, password: string) {
@@ -33,6 +32,8 @@ export class AuthService {
   logout() {
     localStorage.removeItem('user');
     this.userSubject.next(null);
+
+    this.router.navigate(['/auth/sign-in']);
   }
 
   register(user: User) {

@@ -1,3 +1,8 @@
 <div class="container">
-  <ng-content></ng-content>
+  <div class="container__menu" *ngIf="authService.isLogged()">
+    <app-navigation></app-navigation>
+  </div>
+  <div class="container__main">
+    <ng-content></ng-content>
+  </div>
 </div>

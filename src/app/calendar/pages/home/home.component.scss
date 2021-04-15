@@ -2,13 +2,12 @@
   height: 100%;
 
   &__left {
+    position: relative;
     width: 30%;
     float: left;
     background-color: #f9f9f9;
     box-shadow: 1px 0px 0px #ececec;
-    border-top-left-radius: 1em;
-    border-bottom-left-radius: 1em;
-    min-height: 500px;
+    height: 500px;
   }
 
   &__right {
