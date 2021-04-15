@@ -7,7 +7,7 @@ import {AuthService} from '../../../core/services/auth.service';
 import {Day} from '../../domain/day.domain';
 import {CalendarService} from '../../services/calendar.service';
 import {DayStoreService} from '../../services/day-store.service';
-import {HomeComponent} from "../home/home.component";
+import {HomeComponent} from '../home/home.component';
 
 @Component({
   selector: 'app-edit',
@@ -18,7 +18,6 @@ export class EditComponent implements OnInit {
   id: number;
   tabs = ['Сохранить', 'Назад'];
   events = [];
-  eventsEdit = [];
   currentEvent: Event;
   isCreate: boolean;
   day: Day;
@@ -115,7 +114,7 @@ export class EditComponent implements OnInit {
   onDetailAdd($event): void {
     $event.userId = this.authService.getId();
     $event.action = EventAction.ADD;
-    console.log($event)
+    console.log($event);
     this.events.push($event);
     this.isCreate = false;
     delete this.currentEvent;

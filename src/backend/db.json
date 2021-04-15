@@ -1,62 +1,28 @@
 {
   "accounts": [
     {
-      "id": 1,
-      "username": "test",
-      "password": "12345",
-      "email": "test@gmail.com"
-    },
-    {
-      "username": "qwerty",
-      "email": "123@123.ru",
-      "password": "123",
-      "id": 2
-    },
-    {
-      "username": "12312",
-      "email": "12321",
-      "password": "123213",
-      "id": 3
-    },
-    {
-      "username": "45645",
-      "email": "456546",
-      "password": "45654",
-      "id": 4
-    },
-    {
-      "username": "9999",
-      "email": "9999",
-      "password": "9999",
-      "id": 5
-    },
-    {
-      "username": "8888",
-      "email": "8888",
-      "password": "8888",
-      "id": 6
-    },
-    {
-      "username": "11111",
-      "email": "11111",
-      "password": "11111",
-      "id": 7
-    },
-    {
-      "username": "qwerty",
-      "email": "qwerty@12.ru",
-      "password": "qwerty",
-      "id": 8
+      "username": "1111",
+      "email": "1111@11.ru",
+      "password": "1111",
+      "id": 1
     }
   ],
   "events": [
     {
-      "text": "213",
-      "time": "21:03",
-      "date": "1542021",
-      "userId": 8,
+      "text": "Поход в магазин",
+      "time": "18:30",
+      "date": "1642021",
+      "userId": 1,
       "action": 0,
-      "id": 3
+      "id": 1
+    },
+    {
+      "text": "Стоматология",
+      "time": "10:00",
+      "date": "1642021",
+      "userId": 1,
+      "action": 0,
+      "id": 2
     }
   ]
 }
