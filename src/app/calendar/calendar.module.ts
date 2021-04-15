@@ -7,6 +7,8 @@ import {CommonModule} from '@angular/common';
 import { CalendarComponent } from './components/calendar/calendar.component';
 import { EventListComponent } from './components/event-list/event-list.component';
 import { BottombarComponent } from './components/bottombar/bottombar.component';
+import { EditComponent } from './pages/edit/edit.component';
+import { EventDetailComponent } from './components/event-detail/event-detail.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +17,8 @@ import { BottombarComponent } from './components/bottombar/bottombar.component';
     CalendarComponent,
     EventListComponent,
     BottombarComponent,
+    EditComponent,
+    EventDetailComponent,
   ],
   imports: [
     CoreModule,

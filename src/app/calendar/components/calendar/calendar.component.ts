@@ -36,7 +36,7 @@ export class CalendarComponent implements OnInit {
   onNextMonth(): void {
     this.monthNumber++;
 
-    if (this.monthNumber === 13) {
+    if (this.monthNumber === 12) {
       this.monthNumber = 0;
       this.year++;
     }
@@ -47,8 +47,8 @@ export class CalendarComponent implements OnInit {
   onPreviousMonth(): void{
     this.monthNumber--;
 
-    if (this.monthNumber < 1) {
-      this.monthNumber = 12;
+    if (this.monthNumber < 0) {
+      this.monthNumber = 11;
       this.year--;
     }
 

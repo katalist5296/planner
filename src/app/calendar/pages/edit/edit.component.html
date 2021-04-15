@@ -1,0 +1,14 @@
+<div class="calendar-container">
+  <section class="calendar-container__left">
+    <div class="sidebar">
+      <app-event-list [events]="events" [isClick]="true" (onClick)="onClickEvent($event)"></app-event-list>
+    </div>
+    <app-bottombar
+      [tabs]="tabs"
+      (onTabSelect)="onTabSelect($event)"
+    ></app-bottombar>
+  </section>
+  <section class="calendar-container__right">
+    <app-event-detail [event]="currentEvent"></app-event-detail>
+  </section>
+</div>

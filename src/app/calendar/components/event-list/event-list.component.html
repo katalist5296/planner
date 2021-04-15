@@ -1,5 +1,5 @@
 <ul class="event-list">
-  <li *ngFor="let event of events;">
+  <li *ngFor="let event of events;" (click)="handleClick(event)">
     <p><strong>8:00</strong><br/>
       {{event.text}}</p>
   </li>

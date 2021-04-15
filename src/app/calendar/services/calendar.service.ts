@@ -37,6 +37,10 @@ export class CalendarService {
     this.currentDay = date.getDate();
   }
 
+  public generateDayId(day: number, month: number, year: number): string {
+    return `${day}${month}${year}`;
+  }
+
   public getCurrentMonthIndex(): number {
     return this.currentMonthIndex;
   }

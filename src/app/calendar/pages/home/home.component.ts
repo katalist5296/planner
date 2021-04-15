@@ -3,6 +3,8 @@ import {finalize} from 'rxjs/operators';
 import {EventsService} from '../../../core/services/events.service';
 import {CalendarService} from '../../services/calendar.service';
 import {Day} from '../../domain/day.domain';
+import {EventsApi} from '../../../core/api/events.api';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -16,7 +18,9 @@ export class HomeComponent implements OnInit {
 
   constructor(
     private calendarService: CalendarService,
-    private eventsService: EventsService
+    private eventsService: EventsService,
+    private router: Router,
+    private eventsApi: EventsApi
   ) { }
 
   ngOnInit(): void {
@@ -29,12 +33,16 @@ export class HomeComponent implements OnInit {
   }
 
   onTabSelect($event): void {
-    console.log($event)
+    switch ($event) {
+      case 'Редактировать':
+        this.router.navigate(['/calendar', this.calendarService.generateDayId(this.day.number, this.day.monthIndex + 1, this.day.year)]);
+        break;
+    }
   }
 
   loadEvents(day: number, month: number, year: number): void {
-    this.eventsService
-      .list(day, month, year)
+    this.eventsApi
+      .getById(`${day}${month}${year}`)
       .subscribe((data) => {
         this.events = data;
       });
