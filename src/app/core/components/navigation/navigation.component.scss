@@ -32,6 +32,7 @@
 
 
   &__link {
+    cursor: pointer;
     list-style-type: none;
     padding: 0;
     margin: 16px 0;
@@ -43,6 +44,12 @@
     width: 40px;
     height: 40px;
     color: black;
+    transition: 0.2s;
+
+    &:hover {
+      background-color: crimson;
+      color: white;
+    }
   }
 
   & .active {
