@@ -31,7 +31,7 @@
     border:none;
     border-radius:8px;
     font-size:16px;
-    text-transform:uppercase;
+    //text-transform:uppercase;
   }
 
   &__title {
@@ -48,6 +48,7 @@
   &__link {
     font-weight:900;
     color:#444;
+    cursor: pointer;
 
     &:hover {
       color:black;
@@ -55,7 +56,17 @@
   }
 }
 
-.submitBtn:hover {
-  background:#222;
+.submitBtn {
+  will-change: transform;
+  transition: all 0.30s ease-in-out;
+
+  &:hover {
+    background: crimson;
+    transform: scale(.95);
+  }
+
+  &:active {
+    transform: scale(.9);
+  }
 }
 

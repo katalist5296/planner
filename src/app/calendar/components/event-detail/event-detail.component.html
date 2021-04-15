@@ -1,3 +1,12 @@
-<div *ngIf="event">
-  <h2>Details</h2>
+<div *ngIf="event" class="event-detail-container">
+  <form class="event-form" [formGroup]="form" (ngSubmit)="handleSubmit()">
+    <input class="event-form__element" formControlName="title" type="text" placeholder="Событие" required/>
+    <input class="event-form__element" formControlName="time" type="time"
+           placeholder="Время" required/>
+    <button class="event-form__element submitBtn" type="submit">{{isCreate ? 'Добавить' : 'Сохранить'}}</button>
+    <div class="event-form__btn">
+      <p class="event-form__link" *ngIf="!isCreate" (click)="handleDelete()">Удалить</p>
+      <p class="event-form__link" (click)="handleCancel()">Назад</p>
+    </div>
+  </form>
 </div>

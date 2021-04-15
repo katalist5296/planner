@@ -1,6 +1,6 @@
 <ul class="event-list">
-  <li *ngFor="let event of events;" (click)="handleClick(event)">
-    <p><strong>8:00</strong><br/>
+  <li *ngFor="let event of events | sort" (click)="handleClick(event)">
+    <p *ngIf="event.action !== 3"><strong>{{event.time}}</strong><br/>
       {{event.text}}</p>
   </li>
   <p *ngIf="!events.length">

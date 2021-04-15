@@ -1,6 +1,7 @@
 <div class="calendar-container">
   <section class="calendar-container__left">
     <div class="sidebar">
+      <h1>{{day.weekDayName}}, <br/>{{day.number}} {{day.monthLocale}} {{day.year}}</h1>
       <app-event-list [events]="events" [isClick]="true" (onClick)="onClickEvent($event)"></app-event-list>
     </div>
     <app-bottombar
@@ -9,6 +10,15 @@
     ></app-bottombar>
   </section>
   <section class="calendar-container__right">
-    <app-event-detail [event]="currentEvent"></app-event-detail>
+    <app-event-detail *ngIf="currentEvent"
+      [event]="currentEvent"
+      [date]="id"
+      [isCreate]="isCreate"
+      (onCancel)="onDetailCancel()"
+      (onAdd)="onDetailAdd($event)"
+      (onDelete)="onDetailDelete($event)"
+      (onUpdate)="onDetailUpdate($event)"
+    ></app-event-detail>
+    <button class="add-btn" (click)="handleCreateEvent()" *ngIf="!currentEvent">+</button>
   </section>
 </div>

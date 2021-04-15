@@ -4,6 +4,7 @@ import {User} from '../domain/user.domain';
 import {HttpClient} from '@angular/common/http';
 import {Router} from '@angular/router';
 import {map} from 'rxjs/operators';
+import {UsersApi} from "../api/users.api";
 
 @Injectable({
   providedIn: 'root'
@@ -13,33 +14,33 @@ export class AuthService {
   public user: Observable<User>;
 
   constructor(
-    private http: HttpClient,
-    private router: Router
+    private usersApi: UsersApi
   ) {
     this.userSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('user')));
     this.user = this.userSubject.asObservable();
 
-    /*localStorage.removeItem('user');
-    this.userSubject.next(null);*/
+    this.logout();
   }
 
   login(username: string, password: string) {
-    return this.http.get<User>(`http://localhost:3000/accounts?username=${username}&password=${password}`)
-      .pipe(map(user => {
-        localStorage.setItem('user', JSON.stringify(user));
-        this.userSubject.next(user);
-        return user;
-      }));
+    return this.usersApi.login(username, password).pipe(map(user => {
+      localStorage.setItem('user', JSON.stringify(user));
+      this.userSubject.next(user);
+      return user;
+    }));
   }
 
   logout() {
     localStorage.removeItem('user');
     this.userSubject.next(null);
-    this.router.navigate(['/auth/sign-in']);
   }
 
   register(user: User) {
-    return this.http.post(`http://localhost:3000/accounts`, user);
+    return this.usersApi.register(user);
+  }
+
+  getId(): number {
+    return this.userSubject.value[0].id;
   }
 
   isLogged(): boolean {

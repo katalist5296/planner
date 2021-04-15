@@ -22,7 +22,6 @@ export class CalendarComponent implements OnInit {
     this.year = this.calendarService.getCurrentYear();
 
     this.setMonthWeeks(this.calendarService.getCurrentMonth());
-    this.onDayClick(this.calendarService.getCurrentDay());
   }
 
   onCurrentMonth(): void {

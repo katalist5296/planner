@@ -9,6 +9,8 @@ import { EventListComponent } from './components/event-list/event-list.component
 import { BottombarComponent } from './components/bottombar/bottombar.component';
 import { EditComponent } from './pages/edit/edit.component';
 import { EventDetailComponent } from './components/event-detail/event-detail.component';
+import {ReactiveFormsModule} from "@angular/forms";
+import { SortPipe } from './pipes/sort.pipe';
 
 @NgModule({
   declarations: [
@@ -19,10 +21,12 @@ import { EventDetailComponent } from './components/event-detail/event-detail.com
     BottombarComponent,
     EditComponent,
     EventDetailComponent,
+    SortPipe,
   ],
   imports: [
     CoreModule,
     CalendarRoutingModule,
+    ReactiveFormsModule,
     CommonModule
   ]
 })

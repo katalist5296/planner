@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import {Day} from '../domain/day.domain';
+import {DayStoreService} from "./day-store.service";
 
 @Injectable({
   providedIn: 'root'
@@ -30,31 +31,41 @@ export class CalendarService {
     'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Вс'
   ];
 
-  constructor() {
-    const date = new Date();
-    this.currentYear = date.getFullYear();
-    this.currentMonthIndex = date.getMonth();
-    this.currentDay = date.getDate();
-  }
+  constructor(private dayStore: DayStoreService) {}
 
   public generateDayId(day: number, month: number, year: number): string {
     return `${day}${month}${year}`;
   }
 
   public getCurrentMonthIndex(): number {
-    return this.currentMonthIndex;
+    return this.dayStore.getCurrentDay().monthIndex;
   }
 
   public getCurrentYear(): number {
-    return this.currentYear;
+    return this.dayStore.getCurrentDay().year;
+  }
+
+  public getSelectDay(day: number, month: number, year: number): Day {
+    return this.createDay(day, month, year);
+  }
+
+  public getActualDay(): Day {
+    if (!this.dayStore.getSelectDay()) {
+      return this.getCurrentDay();
+    }
+
+    const {day, monthIndex, year} = this.dayStore.getSelectDay();
+    return this.getSelectDay(day, monthIndex, year);
   }
 
   public getCurrentDay(): Day {
-    return this.createDay(this.currentDay, this.currentMonthIndex, this.currentYear);
+    const {day, monthIndex, year} = this.dayStore.getCurrentDay();
+    return this.createDay(day, monthIndex, year);
   }
 
   public getCurrentMonth(): any[] {
-    return this.getMonth(this.currentMonthIndex, this.currentYear);
+    const {monthIndex, year} = this.dayStore.getCurrentDay();
+    return this.getMonth(monthIndex, year);
   }
 
   public getMonth(monthIndex: number, year: number): any[] {
@@ -63,7 +74,6 @@ export class CalendarService {
 
     const firstday = this.createDay(1, monthIndex, year);
 
-    // create empty days
     for (let i = 1; i < firstday.weekDayNumber; i++) {
       days.push({
         weekDayNumber: i,
@@ -72,7 +82,6 @@ export class CalendarService {
       } as Day);
     }
     days.push(firstday);
-    //
 
     const countDaysInMonth = new Date(year, monthIndex + 1, 0).getDate();
     for (let i = 2; i < countDaysInMonth + 1; i++) {
@@ -123,7 +132,7 @@ export class CalendarService {
     return this.dayAbbrNames;
   }
 
-  private createDay(dayNumber: number, monthIndex: number, year: number): Day {
+  public createDay(dayNumber: number, monthIndex: number, year: number): Day {
     const day = new Day();
 
     day.monthIndex = monthIndex;
@@ -131,7 +140,7 @@ export class CalendarService {
     day.monthLocale = this.getMonthRusName(monthIndex);
 
     day.number = dayNumber;
-    day.year = this.currentYear;
+    day.year = year;
 
     day.weekDayNumber = new Date(year, monthIndex, dayNumber).getDay();
     day.weekDayName = this.getWeekDayName(day.weekDayNumber);

@@ -1,0 +1,66 @@
+.event-detail-container {
+  transform: translate(-50%, 50%);
+  position: relative;
+  top: 50%;
+  left: 50%;
+
+  padding:20px;
+  text-align:center;
+  width:400px;
+}
+
+.event-form {
+  display:flex;
+  flex-direction:column;
+  font-size:14px;
+  width: 400px;
+
+  & input {
+    border-radius:5px;
+    border:1px solid #bbb;
+    font-family: 'Montserrat', sans-serif;
+
+    &:focus {
+      border:1px solid black;
+    }
+  }
+
+  & button {
+    background:black;
+    color:#fff;
+    border:none;
+    border-radius:8px;
+    font-size:16px;
+    text-transform:uppercase;
+  }
+
+  &__element {
+    padding:15px;
+    margin:10px 0;
+    font-size:14px;
+    outline:none;
+  }
+
+  &__btn {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__link {
+    font-weight:900;
+    color:#444;
+    cursor: pointer;
+
+    &:hover {
+      color:black;
+    }
+  }
+}
+
+.action-btn {
+
+}
+
+.submitBtn:hover {
+  background:#222;
+}
