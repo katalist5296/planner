@@ -1,0 +1,79 @@
+.titlebar {
+  -webkit-app-region: drag;
+  position: absolute;
+  z-index: 100;
+  width: 100%;
+  height: 35px;
+  top: 0;
+
+  &__control {
+    position: absolute;
+    width: 80px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    & button {
+      width: 14px;
+      height: 14px;
+      cursor: pointer;
+      border-radius: 50%;
+      border: none;
+      margin: 3px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      -webkit-app-region: no-drag;
+
+      &:focus {
+        outline: none;
+        transform: scale(0.95);
+      }
+    }
+  }
+}
+
+
+.control-windows {
+  right: 15px;
+}
+
+.close {
+  background: #f55c54;
+}
+
+.close svg {
+  fill: #f55c54;
+}
+
+.close:hover svg {
+  fill: #ad3f39;
+}
+
+.minimize {
+  background: #f7bb2d;
+}
+
+.minimize svg {
+  fill: #f7bb2d;
+}
+
+.minimize:hover svg {
+  fill: #c29223;
+}
+
+.fullscreen {
+  background: #27c841;
+}
+
+
+.fullscreen svg {
+  fill: #27c841;
+  width: 18px;
+  height: 18px;
+}
+
+.fullscreen:hover svg {
+  fill: #1b8f2e;
+}

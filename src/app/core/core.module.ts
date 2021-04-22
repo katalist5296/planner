@@ -5,12 +5,14 @@ import {HttpClientModule} from '@angular/common/http';
 import {CommonModule} from '@angular/common';
 import { NavigationComponent } from './components/navigation/navigation.component';
 import {RouterModule} from '@angular/router';
+import { TitlebarComponent } from './components/titlebar/titlebar.component';
 
 @NgModule({
   declarations: [
     NotFoundComponent,
     MainContainerComponent,
-    NavigationComponent
+    NavigationComponent,
+    TitlebarComponent
   ],
   imports: [
     HttpClientModule,
